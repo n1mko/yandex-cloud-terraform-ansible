@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>DevOps Assignment Server</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 50px; text-align: center; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
+        h1 { color: #2c3e50; }
+        p { font-size: 1.2em; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Сервер успешно настроен через Ansible!</h1>
+        <p><strong>Имя хоста:</strong> {{ inventory_hostname }}</p>
+        <p><strong>Внутренний IP:</strong> {{ ansible_default_ipv4.address }}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+---
+- name: Установка hostname машины
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Установка базовых утилит
+  apt:
+    name:
+      - net-tools
+      - dnsutils
+      - wget
+      - curl
+      - mc
+      - rsync
+    state: present
+    update_cache: yes

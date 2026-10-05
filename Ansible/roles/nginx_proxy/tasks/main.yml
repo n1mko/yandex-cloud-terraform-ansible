@@ -1,0 +1,17 @@
+---
+- name: Установка Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Конфигурация проксирования на порт 3000
+  template:
+    src: proxy.conf.j2
+    dest: /etc/nginx/sites-available/default
+    mode: '0644'
+
+- name: Перезапуск Nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes

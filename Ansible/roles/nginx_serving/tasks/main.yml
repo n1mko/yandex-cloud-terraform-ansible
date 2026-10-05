@@ -1,0 +1,17 @@
+---
+- name: Установка Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Создание index.html с Magic Variable
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.nginx-debian.html
+    mode: '0644'
+
+- name: Перезапуск Nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes

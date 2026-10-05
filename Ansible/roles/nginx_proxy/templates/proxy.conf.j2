@@ -1,0 +1,14 @@
+upstream backend {
+    server 10.128.0.33:80; # vm-2
+    server 10.128.0.19:80; # vm-3
+}
+
+server {
+    listen 3000;
+
+    location / {
+        proxy_pass http://backend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
