@@ -9,8 +9,17 @@
   - nginx_serving: веб-серверы Nginx (vm-2, vm-3), отдающие Hello from <hostname>!.
   - nginx_proxy: обратный прокси-сервер (vm-1), принимающий запросы на порту 3000.
 
+## Перед запуском
+
+Создайте файл `Terraform/terraform.tfvars` со своими значениями (файл не публикуется из соображений безопасности):
+
+cloud_id  = "<ваш cloud_id>"
+folder_id = "<ваш folder_id>"
+
+Узнать свои значения можно командой `yc config list`.
+
 ## Запуск
 1. Развернуть инфраструктуру:
-   cd Terraform && terraform apply
+   cd Terraform && tofu apply
 2. Настроить конфигурации:
    cd ../Ansible && ansible-playbook site.yml

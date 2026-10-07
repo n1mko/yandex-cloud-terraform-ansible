@@ -1,3 +1,4 @@
+# Указываем провайдера - Yandex Cloud
 terraform {
   required_providers {
     yandex = {
@@ -6,6 +7,7 @@ terraform {
   }
 }
 
+# Настройка подключения к Yandex Cloud
 provider "yandex" {
   service_account_key_file = pathexpand("~/key.json")
   cloud_id                 = var.cloud_id
